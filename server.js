@@ -8,6 +8,7 @@ hbs.registerHelper('getCurrentYear',()=>{
     return new Date().getFullYear();
 });
 app.use((req,res,next)=>{
+
     next();
 });
 hbs.registerHelper('screamIt',(test)=>{
@@ -34,6 +35,6 @@ app.get('/about',(req,res)=>{
         currentYear: new Date().getFullYear()
     });
 })
-app.listen(3000,()=>{
+app.listen(port,()=>{
     console.log(`Server is up on port ${port}`);
 });

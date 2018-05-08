@@ -8,23 +8,23 @@ hbs.registerHelper('getCurrentYear',()=>{
     return new Date().getFullYear();
 });
 app.use((req,res,next)=>{
-
+    next();
 });
 hbs.registerHelper('screamIt',(test)=>{
     return test.toUpperCase();
 });
 app.get('/',(req,res)=>{
     console.log('called');
-    res.send({
-      name: 'smith',
-      likes:['Andrew',
-            'biking',
-            'Cities']
-    });
-    // res.render('home.hbs',{
-    //     pageTitle: 'Welcome',
-    //     currentYear: new Date().getFullYear()
-    // })
+    // res.send({
+    //   name: 'smith',
+    //   likes:['Andrew',
+    //         'biking',
+    //         'Cities']
+    // });
+    res.render('home.hbs',{
+        pageTitle: 'Welcome',
+        currentYear: new Date().getFullYear()
+    })
 });
 
 app.get('/about',(req,res)=>{
@@ -34,6 +34,6 @@ app.get('/about',(req,res)=>{
         currentYear: new Date().getFullYear()
     });
 })
-app.listen(port,()=>{
+app.listen(3000,()=>{
     console.log(`Server is up on port ${port}`);
 });
